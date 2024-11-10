@@ -1,5 +1,5 @@
 # Updater
-ifeq ($(IS_OFFICIAL),true)
+ifeq ($(BLAZE_BUILD_TYPE),OFFICIAL)
     PRODUCT_PACKAGES += \
-        Updater
+        Updates
 endif

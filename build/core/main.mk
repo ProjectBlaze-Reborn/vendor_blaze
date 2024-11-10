@@ -1,2 +1,2 @@
-# Include PixelOS versions
-include $(TOPDIR)vendor/aosp/build/core/main_version.mk
+# Include Blaze versions
+include $(TOPDIR)vendor/blaze/build/core/main_version.mk

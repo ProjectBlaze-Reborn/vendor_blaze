@@ -6,8 +6,8 @@ function check_product()
         echo "Couldn't locate the top of the tree. Try setting TOP." >&2
         return
     fi
-    if (echo -n $1 | grep -q -e "^aosp_") ; then
-        CUSTOM_BUILD=$(echo -n $1 | sed -e 's/^aosp_//g')
+    if (echo -n $1 | grep -q -e "^blaze_") ; then
+        CUSTOM_BUILD=$(echo -n $1 | sed -e 's/^blaze_//g')
     else
         CUSTOM_BUILD=
     fi
@@ -38,7 +38,7 @@ function breakfast()
 {
     target=$1
     local variant=$2
-    source ${ANDROID_BUILD_TOP}/vendor/aosp/vars/aosp_target_release
+    source ${ANDROID_BUILD_TOP}/vendor/blaze/vars/aosp_target_release
 
     if [ $# -eq 0 ]; then
         # No arguments, so let's have the full menu
@@ -53,7 +53,7 @@ function breakfast()
                 variant="userdebug"
             fi
 
-            lunch aosp_$target-$aosp_target_release-$variant
+            lunch blaze_$target-$aosp_target_release-$variant
         fi
     fi
     return $?
@@ -64,7 +64,7 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        ZIPPATH=`ls -tr "$OUT"/PixelOS-*.zip | tail -1`
+        ZIPPATH=`ls -tr "$OUT"/ProjectBlaze-*.zip | tail -1`
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
             return 1
@@ -279,7 +279,7 @@ function githubremote()
 
     local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
 
-    git remote add github https://github.com/PixelOS-AOSP/$PROJECT
+    git remote add github https://github.com/ProjectBlaze-Reborn/$PROJECT
     echo "Remote 'github' created"
 }
 
@@ -563,7 +563,7 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/aosp/build/tools/repopick.py $@
+    $T/vendor/blaze/build/tools/repopick.py $@
 }
 
 function sort-blobs-list() {
