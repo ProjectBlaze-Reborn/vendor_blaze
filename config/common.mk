@@ -4,6 +4,9 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 # Google Apps
 $(call inherit-product, vendor/gms/products/gms.mk)
 
+# ThemeOverlays
+$(call inherit-product, packages/overlays/Themes/themes.mk)
+
 PRODUCT_BRAND ?= ProjectBlaze
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
