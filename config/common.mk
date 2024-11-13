@@ -192,6 +192,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     TouchGestures
 
+# GameSpace
+PRODUCT_PACKAGES += \
+    GameSpace
+
 # These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
     procmem
