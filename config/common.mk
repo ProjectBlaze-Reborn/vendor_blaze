@@ -212,6 +212,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     GameSpace
 
+# LMOFreeform
+PRODUCT_PACKAGES += \
+   LMOFreeform \
+   LMOFreeformSidebar
+
 # These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
     procmem
